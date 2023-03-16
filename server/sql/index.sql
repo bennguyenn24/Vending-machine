@@ -1,0 +1,13 @@
+-- CREATE DATABASE
+CREATE DATABASE vending_machine;
+
+-- CREATE TABLE
+-- TODO: ADD A COLUMN FOR TYPES (SNACKS AND DRINKS)
+CREATE TABLE products(
+   id serial PRIMARY KEY,
+   name VARCHAR (255) UNIQUE NOT NULL
+);
+
+-- INSERT INTO
+INSERT INTO products(name)
+VALUES ('Funyuns');

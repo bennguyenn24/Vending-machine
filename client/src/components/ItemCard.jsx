@@ -1,10 +1,13 @@
 import React from "react";
+import "./ItemCard.css"
 
 function ItemCard({ item }) {
     return (
-        <article>
+        <article className="ItemCard">
             <h1>{item.name}</h1>
-            <span>$3</span>
+            <span>Price: ${item.price}</span>
+            <span>Type : {item.type}</span>
+            <span>Quantity: {item.quantity}</span>
         </article>
     );
 }

@@ -10,7 +10,7 @@ function App() {
 
     useEffect(() => {
         const getVendingMachineItems = async () => {
-            const res = await fetch(`${SERVER_URL}/snacks`);
+            const res = await fetch(`${SERVER_URL}/items`);
             const { data } = await res.json();
 
             setItems(data);

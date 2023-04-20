@@ -2,8 +2,6 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
-const db = require("./db/index");
-
 const corsOptions = {
     origin: "http://localhost:5173",
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -11,13 +9,18 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get("/api/snacks", async (req, res) => {
-    // ROWS IS WHERE ALL INFO IS RETURNED
-    const { rows } = await db.query("SELECT * FROM products");
+// Routes
+const itemRoutes = require("./routes/itemRoutes");
 
-    res.json({
-        data: rows,
-    });
-});
+app.use("/api/items", itemRoutes);
+
+// app.post("/api/snacks", async (req, res) => {
+//     // ROWS IS WHERE ALL INFO IS RETURNED
+//     const { rows } = await db.query("SELECT * FROM products");
+
+//     res.json({
+//         data: rows,
+//     });
+// });
 
 app.listen(3000, () => console.log("Server is running on PORT 3000"));

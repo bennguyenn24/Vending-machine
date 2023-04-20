@@ -1,14 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../db/index");
+const itemsController = require("../controllers/itemsController");
 
-router.get("/", async (req, res) => {
-    // ROWS IS WHERE ALL INFO IS RETURNED
-    const { rows } = await db.query("SELECT * FROM products");
+router.get("/", itemsController.getAllItems);
 
-    res.json({
-        data: rows,
-    });
-});
+router.post("/", itemsController.postItem);
 
 module.exports = router;

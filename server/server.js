@@ -1,9 +1,17 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 const db = require("./db/index");
 
-app.get("/api/v1/snacks", async (req, res) => {
+const corsOptions = {
+    origin: "http://localhost:5173",
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.use(cors(corsOptions));
+
+app.get("/api/snacks", async (req, res) => {
     // ROWS IS WHERE ALL INFO IS RETURNED
     const { rows } = await db.query("SELECT * FROM products");
 

@@ -7,12 +7,13 @@ CREATE TABLE products(
    id serial PRIMARY KEY,
    name VARCHAR(255) UNIQUE NOT NULL,
    price SMALLINT,
-   type VARCHAR(255)
+   type VARCHAR(255),
+   quantity SMALLINT
 );
 
 -- INSERT INTO
-INSERT INTO products(name)
-VALUES ('Funyuns');
+INSERT INTO products(name, price, type, quantity)
+VALUES ('Funyuns', 3, 'snack', 1);
 
 -- DROP TABLE
 DROP TABLE products;
